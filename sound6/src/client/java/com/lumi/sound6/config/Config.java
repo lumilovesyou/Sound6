@@ -22,14 +22,13 @@ public class Config {
 
     public HashMap<Integer, ConfigValues> menu = new HashMap<>() {{
         put(1, new ConfigValues("cat_spawn_egg", "entity.cat.ambient", 0, -100));
-        put(2, new ConfigValues("copper_ingot", "copper", 100, -50));
-        put(3, new ConfigValues("iron_ingot", "iron", 100, 50));
-        put(4, new ConfigValues("redstone", "redstone", 0, 100));
-        put(5, new ConfigValues("emerald", "emerald", -100, 50));
-        put(6, new ConfigValues("diamond", "diamond", -100, -50));
+        put(2, new ConfigValues("air", "", 100, -50));
+        put(3, new ConfigValues("air", "", 100, 50));
+        put(4, new ConfigValues("air", "", 0, 100));
+        put(5, new ConfigValues("air", "", -100, 50));
+        put(6, new ConfigValues("air", "", -100, -50));
     }};
     public Float volume = 1.0f;
-
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final File configFile = new File("config/sound6.json");

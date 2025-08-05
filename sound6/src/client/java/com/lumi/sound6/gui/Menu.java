@@ -39,7 +39,6 @@ public class Menu extends Screen {
                         20, 20,
                         translatedItem,
                         button -> {
-                            BlockPos playerPos = client.player.getBlockPos();
                             float pitch = 1.0f;
                             SoundPacket.PlaySoundPayload payload = new SoundPacket.PlaySoundPayload(value.soundID, CONFIG.volume, pitch);
                             ClientPlayNetworking.send(payload);

@@ -29,14 +29,10 @@ public class Sound6 implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		PayloadTypeRegistry.playC2S().register(SoundPacket.PlaySoundPayload.ID, SoundPacket.PlaySoundPayload.CODEC);
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Sound6 says hello! :3");
 		ServerPlayNetworking.registerGlobalReceiver(SoundPacket.PlaySoundPayload.ID, (payload, context) -> {
 			context.server().execute(() -> {
-				LOGGER.info("Server received packet from player: " + context.player().getName().getString());
-				LOGGER.info("Info:\n" + context.player().getBlockPos() + "\n" + payload.soundID() + "\n" + payload.pitch() + "\n" + payload.volume());
-
 				RegistryEntry<SoundEvent> soundEvent = getSoundEventFromId(payload.soundID());
-
 				if (soundEvent != null) {
 					context.player().getWorld().playSound(
 							null,

@@ -31,7 +31,6 @@ public class Sound6Client implements ClientModInitializer {
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (openMenu.wasPressed()) {
-				client.player.sendMessage(Text.literal("Meow :3"), false);
 				MinecraftClient.getInstance().setScreen(new Menu());
 			}
 		});
