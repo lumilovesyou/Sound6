@@ -36,11 +36,11 @@ public class Config {
 
     public HashMap<Integer, SoundButtonValues> soundButtons = new HashMap<>() {{
         put(1, new SoundButtonValues("cat_spawn_egg", "entity.cat.ambient", 0, -100));
-        put(2, new SoundButtonValues("air", "", 100, -50));
-        put(3, new SoundButtonValues("air", "", 100, 50));
-        put(4, new SoundButtonValues("air", "", 0, 100));
-        put(5, new SoundButtonValues("air", "", -100, 50));
-        put(6, new SoundButtonValues("air", "", -100, -50));
+        put(2, new SoundButtonValues("air", "", 80, -40));
+        put(3, new SoundButtonValues("air", "", 80, 40));
+        put(4, new SoundButtonValues("air", "", 0, 80));
+        put(5, new SoundButtonValues("air", "", -80, 40));
+        put(6, new SoundButtonValues("air", "", -80, -40));
     }};
     public HashMap<Integer, VolumeButtonValues> volumeButtons = new HashMap<>() {{
         put(1, new VolumeButtonValues("gunpowder", 0.5f, -40, 110));

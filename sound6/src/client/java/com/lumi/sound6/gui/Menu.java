@@ -32,7 +32,7 @@ public class Menu extends Screen {
         for (int i = 0; i < 6; i++) {
             Config.SoundButtonValues value = CONFIG.soundButtons.get(i + 1);
             if (value != null) {
-                ItemStack translatedItem = new ItemStack(Registries.ITEM.get(Identifier.ofVanilla(value.itemID)));
+                ItemStack translatedItem = new ItemStack(Registries.ITEM.get(Identifier.of(value.itemID)));
                 ItemIconButton itemButton = new ItemIconButton(
                         width / 2 - (CONFIG.buttonSize / 2) + (int) value.xOffset, height / 2 - (CONFIG.buttonSize / 2) + (int) value.yOffset,
                         CONFIG.buttonSize, CONFIG.buttonSize,
