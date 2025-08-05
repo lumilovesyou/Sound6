@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.io.*;
 
 public class Config {
-    public class ConfigValues {
+    public class SoundButtonValues {
         public String itemID;
         public String soundID;
         public Integer xOffset;
         public Integer yOffset;
 
-        public ConfigValues(String a, String b, Integer c, Integer d) {
+        public SoundButtonValues(String a, String b, Integer c, Integer d) {
             this.itemID = a;
             this.soundID = b;
             this.xOffset = c;
@@ -20,15 +20,38 @@ public class Config {
         }
     }
 
-    public HashMap<Integer, ConfigValues> menu = new HashMap<>() {{
-        put(1, new ConfigValues("cat_spawn_egg", "entity.cat.ambient", 0, -100));
-        put(2, new ConfigValues("air", "", 100, -50));
-        put(3, new ConfigValues("air", "", 100, 50));
-        put(4, new ConfigValues("air", "", 0, 100));
-        put(5, new ConfigValues("air", "", -100, 50));
-        put(6, new ConfigValues("air", "", -100, -50));
+    public class VolumeButtonValues {
+        public String itemID;
+        public Float volume;
+        public Integer xOffset;
+        public Integer yOffset;
+
+        public VolumeButtonValues(String a, Float b, Integer c, Integer d) {
+            this.itemID = a;
+            this.volume = b;
+            this.xOffset = c;
+            this.yOffset = d;
+        }
+    }
+
+    public HashMap<Integer, SoundButtonValues> soundButtons = new HashMap<>() {{
+        put(1, new SoundButtonValues("cat_spawn_egg", "entity.cat.ambient", 0, -100));
+        put(2, new SoundButtonValues("air", "", 100, -50));
+        put(3, new SoundButtonValues("air", "", 100, 50));
+        put(4, new SoundButtonValues("air", "", 0, 100));
+        put(5, new SoundButtonValues("air", "", -100, 50));
+        put(6, new SoundButtonValues("air", "", -100, -50));
+    }};
+    public HashMap<Integer, VolumeButtonValues> volumeButtons = new HashMap<>() {{
+        put(1, new VolumeButtonValues("gunpowder", 0.5f, -40, 110));
+        put(2, new VolumeButtonValues("redstone", 1.0f, 0, 110));
+        put(3, new VolumeButtonValues("glowstone_dust", 1.5f, 40, 110));
     }};
     public Float volume = 1.0f;
+    public Integer buttonSize = 20;
+    public Boolean closeMenuOnClick = true;
+    public Boolean sendMessages = true;
+    public Boolean sendInChat = false;
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final File configFile = new File("config/sound6.json");
