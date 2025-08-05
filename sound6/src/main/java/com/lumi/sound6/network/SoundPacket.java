@@ -5,8 +5,9 @@ import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 
+//I hate networking >:{
+//Someone fucking kill me
 public class SoundPacket {
     public static final Identifier SOUND_PACKET_ID = Identifier.of("sound6", "play_sound");
 

@@ -39,8 +39,6 @@ public class Menu extends Screen {
                         20, 20,
                         translatedItem,
                         button -> {
-                            //MinecraftClient.getInstance().player.sendMessage(Text.literal(value.soundID), false);
-
                             BlockPos playerPos = client.player.getBlockPos();
                             float pitch = 1.0f;
                             SoundPacket.PlaySoundPayload payload = new SoundPacket.PlaySoundPayload(value.soundID, CONFIG.volume, pitch);
@@ -57,10 +55,7 @@ public class Menu extends Screen {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
-        //context.fill(0, 0, this.width, this.height, 0x88FF0000);
-        //context.drawText(client.textRenderer, "Hello, world!", 10, 200, 0xFFFFFFFF, false);
         context.drawCenteredTextWithShadow(client.textRenderer, "Click a Button", width / 2, height / 2, 0xFFFFFFFF);
-
     }
 
     @Override
@@ -81,7 +76,6 @@ public class Menu extends Screen {
             MinecraftClient.getInstance().player.sendMessage(Text.literal(String.format("Volume changed to %f.", volume)), false);
             return true;
         }
-
         switch (keyCode) {
             case GLFW.GLFW_KEY_R:
                 CONFIG = Config.load();
@@ -91,7 +85,6 @@ public class Menu extends Screen {
                 this.close();
                 return true;
         }
-
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 }

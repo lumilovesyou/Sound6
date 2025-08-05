@@ -1,12 +1,8 @@
 package com.lumi.sound6.config;
 
-//Config
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-//Dictionary
 import java.util.HashMap;
-
 import java.io.*;
 
 public class Config {
@@ -44,7 +40,6 @@ public class Config {
             defaultConfig.save();
             return defaultConfig;
         }
-
         try (Reader reader = new FileReader(configFile)) {
             return GSON.fromJson(reader, Config.class);
         } catch (IOException error) {
