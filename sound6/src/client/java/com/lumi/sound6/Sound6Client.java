@@ -7,14 +7,15 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 import com.lumi.sound6.gui.Menu;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.lumi.sound6.Sound6.MOD_ID;
+
 public class Sound6Client implements ClientModInitializer {
-	public static final Logger LOGGER = LoggerFactory.getLogger("sound6");
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static Config CONFIG;
 
 	@Override
@@ -23,10 +24,10 @@ public class Sound6Client implements ClientModInitializer {
 		CONFIG.save();
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		KeyBinding openMenu = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-				"key.sound6.keybinds.menu",
+				String.format("key.%s.keybinds.menu", MOD_ID),
 				InputUtil.Type.KEYSYM,
 				GLFW.GLFW_KEY_V,
-				"category.sound6.keybinds.category"
+				String.format("category.%s.keybinds.category", MOD_ID)
 		));
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {

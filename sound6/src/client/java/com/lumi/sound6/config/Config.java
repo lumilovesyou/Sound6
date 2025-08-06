@@ -5,8 +5,16 @@ import com.google.gson.GsonBuilder;
 import java.util.HashMap;
 import java.io.*;
 
+import static com.lumi.sound6.Sound6.MOD_ID;
+
 public class Config {
-    public class SoundButtonValues {
+    public interface ButtonValues {
+        String getItemId();
+        Integer getXOffset();
+        Integer getYOffset();
+    }
+
+    public static class SoundButtonValues implements ButtonValues {
         public String itemID;
         public String soundID;
         public Integer xOffset;
@@ -18,9 +26,18 @@ public class Config {
             this.xOffset = c;
             this.yOffset = d;
         }
+
+        @Override
+        public String getItemId() { return itemID; }
+        @Override
+        public Integer getXOffset() { return xOffset; }
+        @Override
+        public Integer getYOffset() { return yOffset; }
+
+        public String getSoundID() { return soundID; }
     }
 
-    public class VolumeButtonValues {
+    public static class VolumeButtonValues implements ButtonValues {
         public String itemID;
         public Float volume;
         public Integer xOffset;
@@ -32,6 +49,15 @@ public class Config {
             this.xOffset = c;
             this.yOffset = d;
         }
+
+        @Override
+        public String getItemId() { return itemID; }
+        @Override
+        public Integer getXOffset() { return xOffset; }
+        @Override
+        public Integer getYOffset() { return yOffset; }
+
+        public Float getVolume() { return volume; }
     }
 
     public HashMap<Integer, SoundButtonValues> soundButtons = new HashMap<>() {{
@@ -54,7 +80,7 @@ public class Config {
     public Boolean sendInChat = false;
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static final File configFile = new File("config/sound6.json");
+    private static final File configFile = new File(String.format("config/%s.json", MOD_ID));
 
     public static Config load() {
         if (!configFile.exists()) {

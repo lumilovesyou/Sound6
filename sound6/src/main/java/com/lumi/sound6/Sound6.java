@@ -21,7 +21,7 @@ public class Sound6 implements ModInitializer {
 			net.minecraft.util.Identifier identifier = Identifier.of(soundId);
 			return Registries.SOUND_EVENT.getEntry(identifier).orElse(null);
 		} catch (Exception e) {
-			LOGGER.error("Invalid sound ID format: " + soundId);
+            LOGGER.error("Invalid sound ID format: {}", soundId);
 			return null;
 		}
 	}
@@ -29,7 +29,7 @@ public class Sound6 implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		PayloadTypeRegistry.playC2S().register(SoundPacket.PlaySoundPayload.ID, SoundPacket.PlaySoundPayload.CODEC);
-		LOGGER.info("Sound6 says hello! :3");
+		LOGGER.info("{} says hello! :3", MOD_ID);
 		ServerPlayNetworking.registerGlobalReceiver(SoundPacket.PlaySoundPayload.ID, (payload, context) -> {
 			context.server().execute(() -> {
 				RegistryEntry<SoundEvent> soundEvent = getSoundEventFromId(payload.soundID());
