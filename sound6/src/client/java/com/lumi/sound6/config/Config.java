@@ -75,7 +75,8 @@ public class Config {
     }};
     public Float volume = 1.0f;
     public Integer buttonSize = 20;
-    public Boolean closeMenuOnClick = true;
+    public Boolean closeMenuOnClickSound = true;
+    public Boolean closeMenuOnClickVolume = false;
     public Boolean sendMessages = true;
     public Boolean sendInChat = false;
 

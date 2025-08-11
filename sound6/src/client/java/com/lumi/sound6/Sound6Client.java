@@ -4,8 +4,12 @@ import com.lumi.sound6.config.Config;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 import com.lumi.sound6.gui.Menu;
@@ -22,7 +26,6 @@ public class Sound6Client implements ClientModInitializer {
 	public void onInitializeClient() {
 		CONFIG = Config.load();
 		CONFIG.save();
-		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 		KeyBinding openMenu = KeyBindingHelper.registerKeyBinding(new KeyBinding(
 				String.format("key.%s.keybinds.menu", MOD_ID),
 				InputUtil.Type.KEYSYM,

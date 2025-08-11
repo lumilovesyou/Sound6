@@ -40,14 +40,14 @@ public class Menu extends Screen {
                         float pitch = 1.0f; //Do I just hardcode this value below or should I make a way to edit this in the config? I don't see why people would want that though
                         SoundPacket.PlaySoundPayload payload = new SoundPacket.PlaySoundPayload(((Config.SoundButtonValues) value).getSoundID(), CONFIG.volume, pitch);
                         ClientPlayNetworking.send(payload);
-                        if (CONFIG.closeMenuOnClick) {
+                        if (CONFIG.closeMenuOnClickSound) {
                             this.close();
                         }
                         messageText = String.format("Played sound %s.", ((Config.SoundButtonValues) value).getSoundID());
                     } else if (value instanceof Config.VolumeButtonValues){
                         messageText = "Volume: " + ((Config.VolumeButtonValues) value).getVolume();
                         setVolume(((Config.VolumeButtonValues) value).getVolume());
-                        if (CONFIG.closeMenuOnClick) {
+                        if (CONFIG.closeMenuOnClickVolume) {
                             this.close();
                         }
                     }
