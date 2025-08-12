@@ -7,6 +7,10 @@
 - [x] Sound buttons
      - [x] Clean garbage code up
      - [x] Separate closeMenuOnClick into sound & volume
-- [ ] Mod menu integration using Cloth Config
+- [x] Mod menu integration
+     - [ ] Add scroll bar
+     - [ ] Add volume button options
+     - [ ] Add misc config options
+     - [ ] Clean up code
 - [ ] Subpages (as in a new page with six more buttons)
 - [ ] Auto sound categories (i.e. minecraft:entities.cat.* brings a new menu with all the sounds)
