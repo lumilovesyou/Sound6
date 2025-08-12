@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"com.lumi.sound6.Sound6Client"
+		],
+		"modmenu": [
+			"com.lumi.sound6.integration.ModMenuIntegration"
 		]
 	},
 	"depends": {
@@ -29,9 +32,6 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
-	},
-	"to-do": {
-		"1": "Add mod menu and cloth config to suggests"
+		"modmenu": "*"
 	}
 }

@@ -6,26 +6,19 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.tooltip.Tooltip;
-import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import static com.lumi.sound6.Sound6.MOD_ID;
 
 public class Menu extends Screen {
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static Config CONFIG;
-    private TextFieldWidget textField;
     private ItemIconButton[] soundButtons = new ItemIconButton[6];
 
     public Menu() {
-        super(Text.literal("Custom Gui"));
+        super(Text.literal("Sound6 Menu"));
     }
 
     private <T extends Config.ButtonValues>ItemIconButton makeButton(T value) {
