@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import com.lumi.sound6.gui.Menu;
 import org.slf4j.Logger;
@@ -23,11 +24,11 @@ public class Sound6Client implements ClientModInitializer {
 		CONFIG = Config.load();
 		CONFIG.save();
 		KeyBinding openMenu = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-				String.format("key.%s.keybinds.menu", MOD_ID),
-				InputUtil.Type.KEYSYM,
-				GLFW.GLFW_KEY_V,
-				String.format("category.%s.keybinds.category", MOD_ID)
-		));
+            String.format("key.%s.keybinds.menu", MOD_ID),
+            InputUtil.Type.KEYSYM,
+            GLFW.GLFW_KEY_V,
+            SOUND6_CATEGORY
+        ));
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (openMenu.wasPressed()) {
@@ -35,4 +36,6 @@ public class Sound6Client implements ClientModInitializer {
 			}
 		});
 	}
+
+    public static final KeyBinding.Category SOUND6_CATEGORY = KeyBinding.Category.create(Identifier.of("sound6", "keybinds"));
 }

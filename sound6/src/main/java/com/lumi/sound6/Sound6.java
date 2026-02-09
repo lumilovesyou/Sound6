@@ -34,7 +34,7 @@ public class Sound6 implements ModInitializer {
 			context.server().execute(() -> {
 				RegistryEntry<SoundEvent> soundEvent = getSoundEventFromId(payload.soundID());
 				if (soundEvent != null) {
-					context.player().getWorld().playSound(
+					context.player().getEntityWorld().playSound(
 							null,
 							context.player().getX(),
 							context.player().getY(),

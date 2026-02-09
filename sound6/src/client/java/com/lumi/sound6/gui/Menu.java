@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.tooltip.Tooltip;
+import net.minecraft.client.input.KeyInput;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
@@ -85,13 +86,15 @@ public class Menu extends Screen {
     }
 
     @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+    public boolean keyPressed(KeyInput input) {
+        int keyCode = input.key();
+
         if (keyCode >= GLFW.GLFW_KEY_1 && keyCode <= GLFW.GLFW_KEY_6) {
             int buttonIndex = keyCode - GLFW.GLFW_KEY_1;
-            soundButtons[buttonIndex].onPress();
+            soundButtons[buttonIndex].onPress(input);
             return true;
         } else if (keyCode >= GLFW.GLFW_KEY_7 && keyCode <= GLFW.GLFW_KEY_9) {
-            setVolume(((keyCode - GLFW.GLFW_KEY_7) / 2) + 0.5f);
+            setVolume(CONFIG.volumeButtons.get(keyCode - GLFW.GLFW_KEY_6).getVolume());
             return true;
         }
         switch (keyCode) {
@@ -103,14 +106,14 @@ public class Menu extends Screen {
                 this.close();
                 return true;
         }
-        return super.keyPressed(keyCode, scanCode, modifiers);
+        return super.keyPressed(input);
     }
 
     public void setVolume(float volume) {
         CONFIG.volume = volume;
         CONFIG.save();
         if (CONFIG.sendMessages) {
-            MinecraftClient.getInstance().player.sendMessage(Text.literal(String.format("Volume changed to %f.", volume)), !CONFIG.sendInChat);
+            MinecraftClient.getInstance().player.sendMessage(Text.literal(String.format("Volume changed to %.1f.", volume)), !CONFIG.sendInChat);
         }
     }
 }
