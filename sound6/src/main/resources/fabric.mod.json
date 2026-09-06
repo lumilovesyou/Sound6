@@ -11,7 +11,7 @@
 		"homepage": "https://modrinth.com/mod/sound6",
 		"sources": "https://github.com/lumilovesyou/sound6"
 	},
-	"license": "MIT",
+	"license": "Custom",
 	"icon": "assets/sound6/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -19,19 +19,23 @@
 			"com.lumi.sound6.Sound6"
 		],
 		"client": [
-			"com.lumi.sound6.Sound6Client"
+			"com.lumi.sound6.client.Sound6Client"
 		],
-		"modmenu": [
-			"com.lumi.sound6.integration.ModMenuIntegration"
+		"fabric-datagen": [
+			"com.lumi.sound6.client.Sound6DataGenerator"
 		]
 	},
+	"mixins": [
+		"sound6.mixins.json",
+		{
+			"config": "sound6.client.mixins.json",
+			"environment": "client"
+		}
+	],
 	"depends": {
-		"fabricloader": ">=0.16.14",
-		"minecraft": "~1.21.8",
-		"java": ">=21",
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"modmenu": "*"
 	}
 }
