@@ -11,10 +11,13 @@ public class Sound6 implements ModInitializer {
 	public static final String MOD_ID = "sound6";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	public static Config config;
+
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Lumi says \"Enjoy the sounds!\"");
 
+		config = Config.load();
 	}
 
 	public static Identifier id(String path) {

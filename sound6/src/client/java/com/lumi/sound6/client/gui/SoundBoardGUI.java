@@ -1,5 +1,6 @@
 package com.lumi.sound6.client.gui;
 
+import com.lumi.sound6.client.gui.components.ItemButton;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.toasts.SystemToast;

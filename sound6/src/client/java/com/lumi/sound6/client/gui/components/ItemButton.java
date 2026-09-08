@@ -1,4 +1,4 @@
-package com.lumi.sound6.client.gui;
+package com.lumi.sound6.client.gui.components;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -13,8 +13,8 @@ public class ItemButton extends Button {
     }
 
     public ItemButton(int x, int y, int width, int height, ItemStack itemStack, OnPress onPress, Component message) {
-        this.itemStack = itemStack;
         super(x, y, width, height, message, onPress, DEFAULT_NARRATION);
+        this.itemStack = itemStack;
     }
 
     @Override
